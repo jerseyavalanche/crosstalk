@@ -44,32 +44,36 @@
 
 :root {
     /* surfaces: page -> panel -> raised -> overlay */
-    --ct-bg: #090909;
-    --ct-bg-2: #0d0d12;
-    --ct-surface: #111118;
-    --ct-surface-2: #16161f;
-    --ct-raised: #1b1c28;
-    --ct-overlay: #14141d;
+    --ct-bg: #020611;
+    --ct-bg-2: #030712;
+    --ct-surface: #061020;
+    --ct-surface-2: #0a1830;
+    --ct-raised: #0d1f3d;
+    --ct-overlay: #081326;
 
     /* legacy aliases kept for existing components */
-    --ct-panel: rgba(17, 17, 24, 0.94);
-    --ct-panel-2: rgba(24, 24, 34, 0.92);
+    --ct-panel: rgba(6, 16, 32, 0.94);
+    --ct-panel-2: rgba(10, 24, 48, 0.92);
 
     /* borders */
-    --ct-border: #23243a;
-    --ct-border-strong: #363856;
-    --ct-border-focus: #6ea8ff;
+    --ct-border: #15345f;
+    --ct-border-strong: #1f4d8a;
+    --ct-border-focus: #4fa8ff;
 
     /* text hierarchy */
-    --ct-text: #f7f8ff;
-    --ct-muted: #c6c9de;
-    --ct-dim: #8b8fa8;
+    --ct-text: #eef6ff;
+    --ct-muted: #8ea2bd;
+    --ct-dim: #64789a;
 
     /* brand + semantic */
-    --ct-blue: #0061fd;
-    --ct-blue-hover: #1f76ff;
-    --ct-blue-soft: rgba(0, 97, 253, 0.16);
-    --ct-blue-glow: rgba(0, 97, 253, 0.35);
+    --ct-blue: #4fa8ff;
+    --ct-blue-hover: #74bcff;
+    --ct-blue-soft: rgba(79, 168, 255, 0.16);
+    --ct-blue-glow: rgba(79, 168, 255, 0.35);
+    --ct-pink: #ff2f9d;
+    --ct-pink-hover: #ff0b82;
+    --ct-pink-soft: rgba(255, 47, 157, 0.16);
+    --ct-pink-glow: rgba(255, 47, 157, 0.4);
     --ct-amber: #ff9900;
     --ct-amber-soft: rgba(255, 153, 0, 0.14);
     --ct-red: #ff3b57;
@@ -85,7 +89,7 @@
     /* shadows */
     --ct-shadow-panel: 0 18px 70px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.04);
     --ct-shadow-overlay: 0 24px 90px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    --ct-focus-ring: 0 0 0 3px rgba(0, 97, 253, 0.28);
+    --ct-focus-ring: 0 0 0 3px rgba(79, 168, 255, 0.28);
 }
 
 html,
@@ -99,9 +103,9 @@ body,
 
 body {
     background:
-        radial-gradient(ellipse at 50% 28%, rgba(0, 97, 253, 0.14), transparent 36%),
-        radial-gradient(ellipse at 80% 78%, rgba(255, 153, 0, 0.06), transparent 30%),
-        #090909;
+        radial-gradient(ellipse at 50% 28%, rgba(255, 47, 157, 0.10), transparent 36%),
+        radial-gradient(ellipse at 80% 78%, rgba(79, 168, 255, 0.10), transparent 30%),
+        #020611;
 }
 
 html {
@@ -110,7 +114,7 @@ html {
 }
 
 ::selection {
-    background: rgba(0, 97, 253, 0.42);
+    background: rgba(255, 47, 157, 0.42);
     color: #ffffff;
 }
 
@@ -128,8 +132,8 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #2a2a40;
-    border: 2px solid #090909;
+    background: #2a3a5a;
+    border: 2px solid #020611;
     border-radius: 999px;
 }
 
@@ -188,9 +192,9 @@ textarea {
 
 .ct-shell {
     background:
-        radial-gradient(ellipse at 50% 0%, rgba(0, 97, 253, 0.15), transparent 42%),
-        radial-gradient(ellipse at 90% 100%, rgba(255, 153, 0, 0.05), transparent 34%),
-        #090909;
+        radial-gradient(ellipse at 50% 0%, rgba(255, 47, 157, 0.12), transparent 42%),
+        radial-gradient(ellipse at 90% 100%, rgba(79, 168, 255, 0.10), transparent 34%),
+        #020611;
 }
 
 .ct-dot-grid {
@@ -266,15 +270,15 @@ textarea {
 /* ---------------------------------- */
 
 .ct-brand-button {
-    background: var(--ct-blue);
+    background: linear-gradient(135deg, var(--ct-pink), var(--ct-pink-hover));
     color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 26px rgba(0, 97, 253, 0.22);
-    transition: background 130ms ease, transform 80ms ease;
+    box-shadow: 0 8px 26px rgba(255, 47, 157, 0.28);
+    transition: filter 130ms ease, transform 80ms ease;
 }
 
 .ct-brand-button:hover {
-    background: var(--ct-blue-hover);
+    filter: brightness(1.08);
 }
 
 .ct-brand-button:active {
@@ -326,7 +330,11 @@ textarea {
 /* ---------------------------------- */
 
 .ct-glow-blue {
-    box-shadow: 0 0 0 1px rgba(0, 97, 253, 0.34), 0 0 38px rgba(0, 97, 253, 0.16);
+    box-shadow: 0 0 0 1px rgba(79, 168, 255, 0.34), 0 0 38px rgba(79, 168, 255, 0.16);
+}
+
+.ct-glow-pink {
+    box-shadow: 0 0 0 1px rgba(255, 47, 157, 0.4), 0 0 38px rgba(255, 47, 157, 0.2);
 }
 
 .ct-status-dot {

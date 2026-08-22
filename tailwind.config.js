@@ -24,6 +24,8 @@ module.exports = {
                 'ct-dim': 'var(--ct-dim)',
                 'ct-blue': 'var(--ct-blue)',
                 'ct-blue-hover': 'var(--ct-blue-hover)',
+                'ct-pink': 'var(--ct-pink)',
+                'ct-pink-hover': 'var(--ct-pink-hover)',
                 'ct-amber': 'var(--ct-amber)',
                 'ct-red': 'var(--ct-red)',
                 'ct-green': 'var(--ct-green)',

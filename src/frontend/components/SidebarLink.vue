@@ -4,11 +4,11 @@
             :href="href" 
             @click="handleNavigate($event, navigate)" 
             type="button" 
-            :class="[ 
+            :class="[
                 isActive
-                    ? 'bg-[rgba(0,97,253,0.16)] text-white border-[rgba(0,97,253,0.45)] shadow-[0_0_32px_rgba(0,97,253,0.12)]' 
-                    : 'text-[var(--ct-muted)] border-transparent hover:text-white hover:bg-[rgba(255,255,255,0.06)] hover:border-[var(--ct-border)]'
-            ]" 
+                    ? 'bg-[rgba(255,47,157,0.16)] text-white border-[rgba(255,47,157,0.45)] shadow-[0_0_32px_rgba(255,47,157,0.14)]'
+                    : 'text-[var(--ct-blue)] border-transparent hover:text-white hover:bg-[rgba(79,168,255,0.08)] hover:border-[var(--ct-border)]'
+            ]"
             class="w-full group flex gap-x-3 rounded-r-full border p-2 mr-2 text-sm leading-6 font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
         >
             <span class="flex shrink-0 items-center opacity-90 group-hover:opacity-100">

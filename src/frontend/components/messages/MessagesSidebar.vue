@@ -4,8 +4,8 @@
         <!-- tabs -->
         <div class="border-b border-r border-[var(--ct-border)] bg-[rgba(11,12,20,0.96)] p-1.5">
             <div class="flex gap-x-1 rounded-lg bg-[rgba(255,255,255,0.04)] p-1">
-                <button @click="tab = 'conversations'" type="button" class="flex-1 rounded-md py-1.5 text-center text-sm font-semibold transition" :class="[ tab === 'conversations' ? 'bg-[var(--ct-blue)] text-white shadow-[0_4px_16px_rgba(0,97,253,0.3)]' : 'text-[var(--ct-dim)] hover:text-[var(--ct-text)]' ]">Chats</button>
-                <button @click="tab = 'announces'" type="button" class="flex-1 rounded-md py-1.5 text-center text-sm font-semibold transition" :class="[ tab === 'announces' ? 'bg-[var(--ct-blue)] text-white shadow-[0_4px_16px_rgba(0,97,253,0.3)]' : 'text-[var(--ct-dim)] hover:text-[var(--ct-text)]' ]">Discover</button>
+                <button @click="tab = 'conversations'" type="button" class="flex-1 rounded-md py-1.5 text-center text-sm font-semibold transition" :class="[ tab === 'conversations' ? 'bg-gradient-to-br from-[var(--ct-pink)] to-[var(--ct-pink-hover)] text-white shadow-[0_4px_16px_rgba(255,47,157,0.35)]' : 'text-[var(--ct-blue)] hover:text-[var(--ct-text)]' ]">Chats</button>
+                <button @click="tab = 'announces'" type="button" class="flex-1 rounded-md py-1.5 text-center text-sm font-semibold transition" :class="[ tab === 'announces' ? 'bg-gradient-to-br from-[var(--ct-pink)] to-[var(--ct-pink-hover)] text-white shadow-[0_4px_16px_rgba(255,47,157,0.35)]' : 'text-[var(--ct-blue)] hover:text-[var(--ct-text)]' ]">Discover</button>
             </div>
         </div>
 
@@ -55,11 +55,17 @@
                 <div v-else class="mx-auto my-auto w-full">
 
                     <!-- no conversations at all -->
-                    <EmptyState v-if="conversations.length === 0" title="No chats yet" description="Find people on the Discover tab, or compose a message to an LXMF address.">
+                    <EmptyState v-if="conversations.length === 0" accent="pink" title="No chats yet" description="Find people on the Discover tab, or compose a message to an LXMF address.">
                         <template v-slot:icon>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
                             </svg>
+                        </template>
+                        <template v-slot:action>
+                            <button @click="composeNewMessage" type="button" class="ct-brand-button inline-flex items-center gap-x-1.5 rounded-full px-4 py-2 text-sm font-semibold text-white">
+                                <PhosphorIcon name="pencil-simple" weight="bold" class="size-4"/>
+                                <span>New Message</span>
+                            </button>
                         </template>
                     </EmptyState>
 
@@ -154,10 +160,12 @@
 import Utils from "../../js/Utils";
 import LxmfUserIcon from "../LxmfUserIcon.vue";
 import EmptyState from "../base/EmptyState.vue";
+import PhosphorIcon from "../PhosphorIcon.vue";
+import GlobalEmitter from "../../js/GlobalEmitter";
 
 export default {
     name: 'MessagesSidebar',
-    components: {LxmfUserIcon, EmptyState},
+    components: {LxmfUserIcon, EmptyState, PhosphorIcon},
     props: {
         peers: Object,
         conversations: Array,
@@ -182,6 +190,9 @@ export default {
         },
         pathStatusTitle(hasPath) {
             return hasPath ? "Path available" : "No current path";
+        },
+        composeNewMessage() {
+            GlobalEmitter.emit("compose-new-message");
         },
     },
     computed: {

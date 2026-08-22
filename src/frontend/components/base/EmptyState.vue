@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col items-center justify-center px-6 py-12 text-center">
-        <div v-if="$slots.icon" class="mb-4 flex size-14 items-center justify-center rounded-2xl border border-[var(--ct-border)] bg-[rgba(0,97,253,0.08)] text-[#7db0ff]">
+        <div v-if="$slots.icon" class="mb-4 flex size-14 items-center justify-center rounded-2xl border" :class="accent === 'pink' ? 'border-[rgba(255,47,157,0.35)] bg-[rgba(255,47,157,0.1)] text-[var(--ct-pink)]' : 'border-[var(--ct-border)] bg-[rgba(79,168,255,0.08)] text-[var(--ct-blue)]'">
             <slot name="icon"></slot>
         </div>
         <div class="text-base font-semibold text-[var(--ct-text)]">{{ title }}</div>
@@ -22,6 +22,10 @@ export default {
         description: {
             type: String,
             default: null,
+        },
+        accent: {
+            type: String,
+            default: "blue",
         },
     },
 };

@@ -13,7 +13,7 @@
                     <PhosphorIcon name="list" weight="bold" class="size-5"/>
                 </button>
                 <div class="hidden sm:flex mr-2.5">
-                    <img class="size-9 drop-shadow-[0_0_20px_rgba(0,97,253,0.45)]" src="/assets/images/crosstalk-mark.svg" />
+                    <img class="size-9 drop-shadow-[0_0_20px_rgba(255,47,157,0.45)]" src="/assets/images/crosstalk-mark.svg" />
                 </div>
                 <div @click="onAppNameClick" class="relative cursor-pointer">
                     <div class="font-bold leading-5 text-[var(--ct-text)]">Crosstalk</div>
@@ -72,7 +72,7 @@
                                     </template>
                                     <template v-slot:text>
                                         <span>Messages</span>
-                                        <span v-if="unreadConversationsCount > 0" class="ml-auto mr-2 inline-flex min-w-5 items-center justify-center rounded-full bg-[var(--ct-blue)] px-1.5 text-xs font-bold text-white">{{ unreadConversationsCount }}</span>
+                                        <span v-if="unreadConversationsCount > 0" class="ml-auto mr-2 inline-flex min-w-5 items-center justify-center rounded-full bg-[var(--ct-pink)] px-1.5 text-xs font-bold text-white">{{ unreadConversationsCount }}</span>
                                     </template>
                                 </SidebarLink>
                             </li>
