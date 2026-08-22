@@ -28,13 +28,13 @@
                     <div class="ct-section-label mb-1.5">{{ group.label }}</div>
                     <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
                         <button v-for="option of group.options" :key="option.type" @click="newInterfaceType = option.type" type="button" class="ct-card ct-card-hover flex items-start gap-x-3 p-3 text-left">
-                            <div class="flex size-10 shrink-0 items-center justify-center rounded-lg border border-[rgba(0,97,253,0.3)] bg-[rgba(0,97,253,0.1)] text-[#7db0ff]">
+                            <div class="flex size-10 shrink-0 items-center justify-center rounded-lg border border-[rgba(79,168,255,0.3)] bg-[rgba(79,168,255,0.1)] text-[#9fcaff]">
                                 <PhosphorIcon :name="option.icon" weight="duotone" class="size-5"/>
                             </div>
                             <div class="min-w-0">
                                 <div class="text-sm font-semibold text-[var(--ct-text)]">{{ option.name }}</div>
                                 <div class="mt-0.5 text-xs leading-4 text-[var(--ct-dim)]">{{ option.description }}</div>
-                                <div v-if="alreadyEnabledNoticeForType(option.type)" class="mt-1 text-xs font-medium text-[#7db0ff]">
+                                <div v-if="alreadyEnabledNoticeForType(option.type)" class="mt-1 text-xs font-medium text-[#9fcaff]">
                                     {{ alreadyEnabledNoticeForType(option.type) }}
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
             <div v-if="isEditingInterface || newInterfaceType != null" class="ct-elevated-surface rounded-lg divide-y divide-[var(--ct-border)]">
                 <div class="flex items-center p-2.5">
                     <div class="flex min-w-0 items-center gap-x-2">
-                        <div class="flex size-9 shrink-0 items-center justify-center rounded-lg border border-[rgba(0,97,253,0.3)] bg-[rgba(0,97,253,0.1)] text-[#7db0ff]">
+                        <div class="flex size-9 shrink-0 items-center justify-center rounded-lg border border-[rgba(79,168,255,0.3)] bg-[rgba(79,168,255,0.1)] text-[#9fcaff]">
                             <PhosphorIcon :name="selectedTypeOption?.icon ?? 'plugs-connected'" weight="duotone" class="size-5"/>
                         </div>
                         <div class="min-w-0">
@@ -105,7 +105,7 @@
                         <FormSubLabel>Interface names must be unique.</FormSubLabel>
                     </div>
 
-                    <div v-if="!isEditingInterface && newInterfaceType === 'AutoInterface' && enabledAutoInterfaces.length > 0" class="rounded-lg border border-[rgba(110,168,255,0.34)] bg-[rgba(0,97,253,0.09)] p-3 text-sm text-[var(--ct-text)]">
+                    <div v-if="!isEditingInterface && newInterfaceType === 'AutoInterface' && enabledAutoInterfaces.length > 0" class="rounded-lg border border-[rgba(79,168,255,0.34)] bg-[rgba(79,168,255,0.09)] p-3 text-sm text-[var(--ct-text)]">
                         <div class="font-bold">Local discovery is already on</div>
                         <div class="mt-1 text-[var(--ct-muted)]">
                             {{ enabledAutoInterfaceNames }} {{ enabledAutoInterfaces.length === 1 ? "is" : "are" }} already finding peers on this WiFi or Ethernet network. Another AutoInterface with the default group and ports will fail to start. Add a second one only if you need a separate mesh.
@@ -119,7 +119,7 @@
                         </button>
                     </div>
 
-                    <div v-if="newInterfaceType === 'PublicBackboneInterface'" class="rounded-lg border border-[rgba(110,168,255,0.34)] bg-[rgba(0,97,253,0.09)] p-3 text-sm text-[var(--ct-text)] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+                    <div v-if="newInterfaceType === 'PublicBackboneInterface'" class="rounded-lg border border-[rgba(79,168,255,0.34)] bg-[rgba(79,168,255,0.09)] p-3 text-sm text-[var(--ct-text)] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
                         <div class="font-bold">Public Backbone Node Setup</div>
                         <div class="mt-1 text-[var(--ct-muted)]">Paste the rmap.world configuration block here, then fill the interface fields from it.</div>
                         <textarea
@@ -131,7 +131,7 @@
   remote = mia.us.thunderhost.net
   target_port = 4242
   transport_identity = ..."
-                            class="mt-2 font-mono border text-sm rounded-lg block w-full p-2.5 bg-[rgba(2,6,23,0.78)] border-[rgba(110,168,255,0.38)] text-[var(--ct-text)] placeholder:text-[var(--ct-dim)]"></textarea>
+                            class="mt-2 font-mono border text-sm rounded-lg block w-full p-2.5 bg-[rgba(2,6,23,0.78)] border-[rgba(79,168,255,0.38)] text-[var(--ct-text)] placeholder:text-[var(--ct-dim)]"></textarea>
                         <div v-if="publicBackboneConfigError" class="mt-1 text-sm text-[var(--ct-red)]">{{ publicBackboneConfigError }}</div>
                         <div class="mt-2 grid grid-cols-1 xl:grid-cols-[auto_1fr] items-center gap-2">
                             <button
@@ -227,13 +227,13 @@
                             <option v-for="comport of comports" :value="comport.device">{{ comport.device }} (Product: {{ comport.product ?? '?' }}, Serial: {{ comport.serial ?? '?' }})</option>
                         </select>
                         <FormSubLabel>
-                            <div @click="loadComports" class="text-blue-500 underline cursor-pointer">Reload Ports</div>
+                            <div @click="loadComports" class="text-[var(--ct-blue)] underline cursor-pointer">Reload Ports</div>
                         </FormSubLabel>
                     </div>
 
                     <!-- IridiumIMTInterface -->
                     <div v-if="newInterfaceType === 'IridiumIMTInterface'" class="space-y-3">
-                        <div class="rounded-lg border border-[rgba(110,168,255,0.34)] bg-[rgba(0,97,253,0.09)] p-3 text-sm text-[var(--ct-text)]">
+                        <div class="rounded-lg border border-[rgba(79,168,255,0.34)] bg-[rgba(79,168,255,0.09)] p-3 text-sm text-[var(--ct-text)]">
                             <div class="font-bold">Native Reticulum over Iridium IMT</div>
                             <div class="mt-1 text-[var(--ct-muted)]">
                                 Carries complete encrypted Reticulum packets through a USB-connected RockBLOCK 9704. This optional interface requires Ground Control's <code>rockblock9704</code> Python package.
@@ -246,7 +246,7 @@
                                 <option v-for="comport of comports" :value="comport.device">{{ comport.device }} (Product: {{ comport.product ?? '?' }}, Serial: {{ comport.serial ?? '?' }})</option>
                             </select>
                             <FormSubLabel>
-                                <div @click="loadComports" class="text-blue-500 underline cursor-pointer">Reload Ports</div>
+                                <div @click="loadComports" class="text-[var(--ct-blue)] underline cursor-pointer">Reload Ports</div>
                             </FormSubLabel>
                         </div>
 
@@ -374,7 +374,7 @@
                             <option v-for="comport of comports" :value="comport.device">{{ comport.device }} (Product: {{ comport.product ?? '?' }}, Serial: {{ comport.serial ?? '?' }})</option>
                         </select>
                         <FormSubLabel>
-                            <div @click="loadComports" class="text-blue-500 underline cursor-pointer">Reload Ports</div>
+                            <div @click="loadComports" class="text-[var(--ct-blue)] underline cursor-pointer">Reload Ports</div>
                         </FormSubLabel>
                     </div>
 
@@ -454,7 +454,7 @@
                                 <option v-for="comport of comports" :value="comport.device">{{ comport.device }} (Product: {{ comport.product ?? '?' }}, Serial: {{ comport.serial ?? '?' }})</option>
                             </select>
                             <FormSubLabel>
-                                <div @click="loadComports" class="text-blue-500 underline cursor-pointer">Reload Ports</div>
+                                <div @click="loadComports" class="text-[var(--ct-blue)] underline cursor-pointer">Reload Ports</div>
                             </FormSubLabel>
                         </div>
 
@@ -852,7 +852,7 @@
                                 <option value="boundary">Boundary</option>
                             </select>
                             <FormSubLabel>
-                                This setting requires Transport Mode to be enabled. <a class="text-blue-500 underline" href="https://reticulum.network/manual/interfaces.html#interface-modes" target="_blank">Reticulum Docs: Interface Modes</a>
+                                This setting requires Transport Mode to be enabled. <a class="text-[var(--ct-blue)] underline" href="https://reticulum.network/manual/interfaces.html#interface-modes" target="_blank">Reticulum Docs: Interface Modes</a>
                             </FormSubLabel>
                         </div>
 

@@ -42,7 +42,7 @@
                 <div class="grid grid-cols-1 gap-3 p-3 lg:grid-cols-[1fr_auto] lg:items-center">
                     <div class="min-w-0">
                         <div class="flex items-center gap-2">
-                            <div class="flex size-10 shrink-0 items-center justify-center rounded-md border border-[rgba(110,168,255,0.34)] bg-[rgba(0,97,253,0.12)] text-[#7db0ff]">
+                            <div class="flex size-10 shrink-0 items-center justify-center rounded-md border border-[rgba(79,168,255,0.34)] bg-[rgba(79,168,255,0.12)] text-[#9fcaff]">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m-7.843 4.582A11.953 11.953 0 0 0 12 10.5c2.998 0 5.74-1.1 7.843-2.918M3.284 14.253A17.919 17.919 0 0 0 12 16.5c3.162 0 6.133-.815 8.716-2.247" />
                                 </svg>

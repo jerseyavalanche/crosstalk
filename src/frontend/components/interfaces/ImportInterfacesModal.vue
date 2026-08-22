@@ -29,8 +29,8 @@
                         <div class="flex p-3">
                             <div class="my-auto mr-auto text-sm font-medium text-[var(--ct-text)]">Select Interfaces to Import</div>
                             <div class="my-auto space-x-2">
-                                <button @click="selectAllInterfaces" class="text-sm text-[#7db0ff] hover:underline">Select All</button>
-                                <button @click="deselectAllInterfaces" class="text-sm text-[#7db0ff] hover:underline">Deselect All</button>
+                                <button @click="selectAllInterfaces" class="text-sm text-[#9fcaff] hover:underline">Select All</button>
+                                <button @click="deselectAllInterfaces" class="text-sm text-[#9fcaff] hover:underline">Deselect All</button>
                             </div>
                         </div>
                         <div class="max-h-80 space-y-2 overflow-y-auto bg-[rgba(0,0,0,0.3)] p-2">
