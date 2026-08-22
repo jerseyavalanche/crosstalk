@@ -104,7 +104,7 @@
                         </button>
 
                         <!-- leave call -->
-                        <button @click="leaveCall" type="button" class="ml-auto mr-1 my-auto inline-flex items-center gap-x-1 rounded-full bg-blue-500 p-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500">
+                        <button @click="leaveCall" type="button" class="ml-auto mr-1 my-auto inline-flex items-center gap-x-1 rounded-full bg-[var(--ct-blue)] p-2 text-sm font-semibold text-white shadow-sm hover:bg-[var(--ct-blue-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ct-blue)]">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                                 <path fill-rule="evenodd" d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1 1.06.025Z" clip-rule="evenodd" />
                             </svg>
@@ -140,7 +140,7 @@
                         <div class="flex-1">
                             <input v-model="destinationHash" type="text" placeholder="Enter Destination Hash" class="ct-hash block w-full rounded-lg border p-2">
                         </div>
-                        <button @click="initiateCall(destinationHash)" :disabled="isInitiatingCall" type="button" :class="[ isInitiatingCall ? 'cursor-not-allowed bg-[rgba(255,255,255,0.12)] text-[var(--ct-dim)]' : 'bg-emerald-600 hover:bg-emerald-500' ]" class="my-auto inline-flex items-center gap-x-1 rounded-lg p-2 text-sm font-semibold text-white transition">
+                        <button @click="initiateCall(destinationHash)" :disabled="isInitiatingCall" type="button" :class="[ isInitiatingCall ? 'cursor-not-allowed bg-[rgba(255,255,255,0.12)] text-[var(--ct-dim)]' : 'ct-brand-button' ]" class="my-auto inline-flex items-center gap-x-1 rounded-lg p-2 text-sm font-semibold text-white transition">
                         <span v-if="isInitiatingCall">
                             <span>Calling...</span>
                         </span>
