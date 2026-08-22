@@ -24,7 +24,7 @@ export default {
                 case "green": return "bg-[rgba(46,231,129,0.12)] text-[#5df2a4] ring-[rgba(46,231,129,0.35)]";
                 case "red": return "bg-[rgba(255,59,87,0.12)] text-[#ff8298] ring-[rgba(255,59,87,0.35)]";
                 case "amber": return "bg-[rgba(255,153,0,0.12)] text-[#ffb84d] ring-[rgba(255,153,0,0.35)]";
-                case "blue": return "bg-[rgba(0,97,253,0.14)] text-[#7db0ff] ring-[rgba(0,97,253,0.4)]";
+                case "blue": return "bg-[rgba(79,168,255,0.14)] text-[#9fcaff] ring-[rgba(79,168,255,0.4)]";
                 default: return "bg-[rgba(255,255,255,0.06)] text-[var(--ct-muted)] ring-[var(--ct-border-strong)]";
             }
         },

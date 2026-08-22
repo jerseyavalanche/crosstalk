@@ -182,6 +182,22 @@ textarea {
     color: var(--ct-text);
 }
 
+/* @tailwindcss/forms hardcodes checkbox/radio color to blue-600 and uses
+   background-color: currentColor for the checked state (accent-color has
+   no effect since it applies appearance: none) -- override the color
+   itself so checked state renders pink instead. */
+.dark input[type="checkbox"],
+.dark input[type="radio"] {
+    color: var(--ct-pink);
+    accent-color: var(--ct-pink);
+}
+
+.dark input[type="checkbox"]:focus,
+.dark input[type="radio"]:focus {
+    --tw-ring-color: var(--ct-pink);
+    border-color: var(--ct-pink);
+}
+
 .dark a {
     color: #7db0ff;
 }
